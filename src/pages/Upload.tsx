@@ -1,10 +1,13 @@
-
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Loader2, Upload, X, AlertCircle, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+
+// Get the API URL from environment variables or use a fallback
+// This will be configured in Vercel environment settings
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 type UploadStatus = "idle" | "uploading" | "success" | "error";
 interface PredictionResponse {
@@ -64,36 +67,38 @@ export default function UploadXray() {
     };
     reader.readAsDataURL(file);
     
-  // Make API call to FastAPI server
-  setUploadStatus("uploading");
-  
-  // Create form data to send the file
-  const formData = new FormData();
-  formData.append('file', file);
-  
-  // Send the request to the FastAPI server
-  fetch('http://localhost:8000/predict', {
-    method: 'POST',
-    body: formData,
-  })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json();
+    // Make API call to backend server
+    setUploadStatus("uploading");
+    
+    // Create form data to send the file
+    const formData = new FormData();
+    formData.append('file', file);
+    
+    console.log(`Sending prediction request to: ${API_URL}/predict`);
+    
+    // Send the request to the backend server
+    fetch(`${API_URL}/predict`, {
+      method: 'POST',
+      body: formData,
     })
-    .then(data => {
-      if (data.error) {
-        throw new Error(data.error);
-      }
-      setPredictionResult(data);
-      setUploadStatus("success");
-    })
-    .catch(error => {
-      console.error("Error during prediction:", error);
-      setUploadStatus("error");
-      setErrorMessage(error.message || "Failed to analyze the image. Please try again.");
-    });
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        if (data.error) {
+          throw new Error(data.error);
+        }
+        setPredictionResult(data);
+        setUploadStatus("success");
+      })
+      .catch(error => {
+        console.error("Error during prediction:", error);
+        setUploadStatus("error");
+        setErrorMessage(error.message || "Failed to analyze the image. Please try again or check if the backend server is running.");
+      });
   };
 
 
