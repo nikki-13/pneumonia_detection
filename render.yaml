@@ -1,0 +1,31 @@
+services:
+  # Backend API service
+  - type: web
+    name: xray-insight-api
+    runtime: python
+    buildCommand: cd server && chmod +x setup_render.sh && ./setup_render.sh
+    startCommand: cd server && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: FRONTEND_URL
+        value: https://xray-insight-frontend.onrender.com
+      - key: PORT
+        value: 10000
+      - key: NUMBA_CACHE_DIR
+        value: /tmp/numba_cache
+    healthCheckPath: /
+
+  # Frontend application
+  - type: web
+    name: xray-insight-frontend
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run preview -- --port $PORT --host 0.0.0.0
+    envVars:
+      - key: NODE_VERSION
+        value: 18.x
+      - key: VITE_API_URL
+        value: https://xray-insight-api.onrender.com
+      - key: PORT
+        value: 10001
