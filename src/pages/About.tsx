@@ -22,17 +22,15 @@ export default function About() {
             <CardHeader>
               <div className="flex items-center gap-2">
                 <Brain className="h-5 w-5 text-medical-600" />
-                <CardTitle>Swin Transformer Model</CardTitle>
+                <CardTitle>Ensemble Model Architecture</CardTitle>
               </div>
             </CardHeader>
             <CardContent className="space-y-2">
               <p className="text-muted-foreground">
-                Our pneumonia detection system is powered by the Swin Transformer, a state-of-the-art vision model that
-                outperforms traditional convolutional neural networks for medical image analysis.
+                Our pneumonia detection system is powered by an ensemble of three state-of-the-art models: EfficientNet, Swin Transformer, and ResNet, combining their strengths for superior accuracy.
               </p>
               <p className="text-muted-foreground">
-                The Swin Transformer uses a hierarchical representation with shifted windows, allowing it to capture both
-                fine details and broader patterns in chest X-rays.
+                This ensemble approach leverages the unique capabilities of each model: EfficientNet's efficiency, Swin Transformer's hierarchical representation with shifted windows, and ResNet's deep residual learning, resulting in more robust predictions.
               </p>
             </CardContent>
           </Card>

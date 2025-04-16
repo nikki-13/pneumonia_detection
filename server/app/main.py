@@ -13,10 +13,10 @@ from typing import List, Dict, Union
 app = FastAPI(title="X-Ray Insight API", description="API for X-Ray pneumonia prediction")
 
 # Configure CORS to allow requests from the frontend
-frontend_url = os.environ.get("FRONTEND_URL", "http://localhost:5173")
+# Default to localhost:5173 for local development
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[frontend_url],  # Use environment variable instead of wildcard
+    allow_origins=["http://localhost:5173", "http://localhost:8080"],  # Allow both default Vite ports
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

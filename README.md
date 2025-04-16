@@ -1,23 +1,111 @@
-# Medical Image Analysis Project
+# X-Ray Insight Lab
 
-This repository contains code for analyzing medical images using deep learning models.
+An AI-powered application for analyzing chest X-rays to detect pneumonia.
 
-## Model Files
+## Features
 
-The trained model files are not included in this repository due to their large size:
-- `src/model/efficientnet_pneumonia.pth`
-- `src/model/resnet_best.pth` (90.08 MB)
-- `src/model/swin_best-2.pth` (105.29 MB)
+- Upload chest X-ray images for analysis
+- Real-time AI prediction for pneumonia detection
+- Confidence scores and detailed results
+- Batch testing capabilities for model evaluation
 
-### How to Obtain the Model Files
+## Tech Stack
 
-To use this project, you'll need to download the model files separately. You can obtain them by:
-1. Contacting the repository owner for access
-2. [Optional] Download them from [insert your preferred file sharing service here]
-3. [Optional] Run the model training scripts included in this repository
+- **Frontend**: React, TypeScript, Vite, Tailwind CSS, Shadcn UI
+- **Backend**: FastAPI, Python
+- **ML Models**: PyTorch, Ensemble of EfficientNet, SwinV2, and ResNet models
 
-Once downloaded, place the model files in the `src/model/` directory.
+## Local Development Setup
 
-## Getting Started
+### Prerequisites
 
-[Include your getting started instructions here]
+- Node.js (v18 or later)
+- Python 3.11 or later
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```
+   git clone <repository-url>
+   cd x-ray-insight-lab
+   ```
+
+2. Install frontend dependencies:
+   ```
+   npm install
+   ```
+
+3. Set up the backend:
+   ```
+   cd server
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   pip install -r requirements.txt
+   cd ..
+   ```
+
+### Running the Application
+
+You can use the provided scripts to run both frontend and backend:
+
+#### First-time setup:
+
+```
+chmod +x start_app.sh
+./start_app.sh
+```
+
+This will install all dependencies and start the application. The first run may take some time as it installs all required packages.
+
+#### Quick start (after initial setup):
+
+For subsequent runs, you can use the quick start script which skips dependency checks and installations:
+
+```
+chmod +x quick_start.sh
+./quick_start.sh
+```
+
+#### Running components separately:
+
+1. Start the backend server:
+   ```
+   cd server
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   python run.py
+   ```
+
+2. In a new terminal, start the frontend:
+   ```
+   npm run dev
+   ```
+
+The application will be available at:
+- Frontend: http://localhost:5173 or http://localhost:8080
+- Backend API: http://localhost:8000
+- API Documentation: http://localhost:8000/docs
+
+## Model Information
+
+The application uses an ensemble of three deep learning models:
+- EfficientNet B0
+- SwinV2 Tiny
+- ResNet50
+
+These models are combined to provide more accurate predictions than any single model.
+
+## API Endpoints
+
+- `GET /`: Health check endpoint
+- `POST /predict`: Upload and analyze an X-ray image
+- `GET /test`: Run batch tests on the model using test images
+
+## Troubleshooting
+
+If you encounter any issues:
+
+1. Ensure all dependencies are installed correctly
+2. Check that the model files are in the correct location (src/model/)
+3. Verify that the backend server is running and accessible
+4. Check the console for any error messages

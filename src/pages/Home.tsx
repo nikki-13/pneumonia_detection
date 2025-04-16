@@ -96,7 +96,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold">Advanced Model</h3>
               <p className="text-center text-gray-500 dark:text-gray-400">
-                Powered by Swin Transformer architecture, the latest in medical image analysis
+                Powered by an ensemble of EfficientNet, Swin Transformer, and ResNet models for superior accuracy
               </p>
             </div>
           </div>

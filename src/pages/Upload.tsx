@@ -5,8 +5,7 @@ import { Loader2, Upload, X, AlertCircle, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
-// Get the API URL from environment variables or use a fallback
-// This will be configured in Vercel environment settings
+// Get the API URL from environment variables or use a fallback for local development
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 type UploadStatus = "idle" | "uploading" | "success" | "error";

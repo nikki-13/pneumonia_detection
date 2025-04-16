@@ -27,7 +27,7 @@ if ! command_exists python3; then
     PYTHON_CMD="python"
 fi
 
-# Install frontend dependencies if needed
+# Check if frontend dependencies are already installed
 if [ ! -d "node_modules" ]; then
     echo "Installing frontend dependencies..."
     npm install
@@ -36,6 +36,8 @@ if [ ! -d "node_modules" ]; then
         exit 1
     fi
     echo "✅ Frontend dependencies installed"
+else
+    echo "✅ Frontend dependencies already installed, skipping installation"
 fi
 
 # Install backend dependencies if needed
@@ -62,14 +64,22 @@ elif [ -f "venv/Scripts/activate" ]; then
     echo "✅ Virtual environment activated"
 fi
 
-# Install backend dependencies
-echo "Installing backend dependencies..."
-$PYTHON_CMD -m pip install -r requirements.txt
-if [ $? -ne 0 ]; then
-    echo "⚠️ Some dependencies could not be installed. Trying individual installations..."
-    $PYTHON_CMD -m pip install fastapi uvicorn python-multipart torch torchvision Pillow requests timm
+# Check if dependencies are already installed
+DEPS_INSTALLED=false
+if [ -f ".deps_installed" ]; then
+    DEPS_INSTALLED=true
+    echo "✅ Backend dependencies already installed, skipping installation"
+else
+    echo "Installing backend dependencies..."
+    $PYTHON_CMD -m pip install -r requirements.txt
+    if [ $? -ne 0 ]; then
+        echo "⚠️ Some dependencies could not be installed. Trying individual installations..."
+        $PYTHON_CMD -m pip install fastapi uvicorn python-multipart torch torchvision Pillow requests timm
+    fi
+    # Create a marker file to indicate dependencies are installed
+    touch .deps_installed
+    echo "✅ Backend dependencies installed"
 fi
-echo "✅ Backend dependencies installed"
 
 # Download test images if they don't exist
 if [ ! -d "test_images" ]; then
