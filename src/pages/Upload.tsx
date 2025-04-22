@@ -118,7 +118,7 @@ export default function UploadXray() {
           Upload Chest X-ray
         </h1>
         <p className="max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-          Upload a chest X-ray image and our AI model will analyze it for signs of pneumonia.
+          Upload a chest X-ray image and our model will analyze it for signs of pneumonia.
         </p>
       </div>
 

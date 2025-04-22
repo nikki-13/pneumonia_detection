@@ -70,7 +70,7 @@ export default function About() {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="flex flex-col items-center p-4 bg-medical-50 dark:bg-medical-900/10 rounded-lg">
-                <span className="text-3xl font-bold text-medical-700 dark:text-medical-400">96.8%</span>
+                <span className="text-3xl font-bold text-medical-700 dark:text-medical-400">95.83%</span>
                 <span className="text-sm text-muted-foreground mt-1">Accuracy</span>
               </div>
               <div className="flex flex-col items-center p-4 bg-medical-50 dark:bg-medical-900/10 rounded-lg">
