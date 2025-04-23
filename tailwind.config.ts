@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -54,15 +53,15 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				medical: {
-					100: '#e6f7ff',
-					200: '#bae7ff',
-					300: '#91d5ff',
-					400: '#69c0ff',
-					500: '#40a9ff',
-					600: '#1890ff',
-					700: '#096dd9',
-					800: '#0050b3',
-					900: '#003a8c',
+					100: '#e6ffef',
+					200: '#baf0d3',
+					300: '#8de2b8',
+					400: '#5fd49d',
+					500: '#3cbc81',
+					600: '#2ca064',
+					700: '#208650',
+					800: '#166e3c',
+					900: '#0e5a2f',
 				},
 			},
 			borderRadius: {
