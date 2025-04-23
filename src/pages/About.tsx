@@ -74,11 +74,11 @@ export default function About() {
                 <span className="text-sm text-muted-foreground mt-1">Accuracy</span>
               </div>
               <div className="flex flex-col items-center p-4 bg-medical-50 dark:bg-medical-900/10 rounded-lg">
-                <span className="text-3xl font-bold text-medical-700 dark:text-medical-400">95.2%</span>
+                <span className="text-3xl font-bold text-medical-700 dark:text-medical-400">95.91%</span>
                 <span className="text-sm text-muted-foreground mt-1">Precision</span>
               </div>
               <div className="flex flex-col items-center p-4 bg-medical-50 dark:bg-medical-900/10 rounded-lg">
-                <span className="text-3xl font-bold text-medical-700 dark:text-medical-400">94.7%</span>
+                <span className="text-3xl font-bold text-medical-700 dark:text-medical-400">95.83%</span>
                 <span className="text-sm text-muted-foreground mt-1">Recall</span>
               </div>
             </div>
