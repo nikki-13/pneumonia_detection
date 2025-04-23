@@ -6,22 +6,22 @@ export default function Team() {
   const teamMembers = [
     {
       id: 1,
-      name: "Team Member 1",
-      role: "Role / Position",
+      name: "Nikhil Sai",
+      role: "Team Lead",
       bio: "Short biography or description about the team member and their expertise in the project.",
       image: null, // Will be filled later
     },
     {
       id: 2,
-      name: "Team Member 2",
-      role: "Role / Position",
+      name: "Vishal",
+      role: "Team Member",
       bio: "Short biography or description about the team member and their expertise in the project.",
       image: null, // Will be filled later
     },
     {
       id: 3,
-      name: "Team Member 3",
-      role: "Role / Position",
+      name: "Jayavardhan Reddy",
+      role: "Team Member",
       bio: "Short biography or description about the team member and their expertise in the project.",
       image: null, // Will be filled later
     },
