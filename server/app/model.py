@@ -45,11 +45,13 @@ class EnsembleModelWrapper(nn.Module):
         return self.ensemble(x)
 
 # Get the directory where the models are stored
-BASE_MODEL_DIR = Path("../src/model").resolve()
+BASE_MODEL_DIR = Path("../model").resolve()  # For server/app → server/model
 if not BASE_MODEL_DIR.exists():
-    BASE_MODEL_DIR = Path("../../src/model").resolve()
+    BASE_MODEL_DIR = Path("../../server/model").resolve()  # For other relative paths
 if not BASE_MODEL_DIR.exists():
-    BASE_MODEL_DIR = Path(os.path.join(os.path.dirname(__file__), "../../src/model")).resolve()
+    BASE_MODEL_DIR = Path(os.path.join(os.path.dirname(__file__), "../model")).resolve()  # From current file
+if not BASE_MODEL_DIR.exists():
+    BASE_MODEL_DIR = Path("/app/model").resolve()  # For Docker container path
 
 print(f"Looking for models in: {BASE_MODEL_DIR}")
 

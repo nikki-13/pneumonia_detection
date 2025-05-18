@@ -16,7 +16,7 @@ app = FastAPI(title="X-Ray Insight API", description="API for X-Ray pneumonia pr
 # Default to localhost:5173 for local development
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:8080"],  # Allow both default Vite ports
+    allow_origins=["http://localhost:5173", "http://localhost:8080","http://localhost:8000"],  # Allow both default Vite ports
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
