@@ -1,7 +1,8 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Stethoscope, BarChart, Clock } from "lucide-react";
+// Import the image
+import homeLogoImg from "@/components/images/home_logo.jpeg";
 
 export default function Home() {
   return (
@@ -38,11 +39,12 @@ export default function Home() {
             </div>
             <div className="flex items-center justify-center">
               <div className="relative w-full max-w-[500px] aspect-square overflow-hidden rounded-xl shadow-2xl animate-fade-in animate-delay-200">
-                <div className="absolute inset-0 bg-gradient-to-tr from-medical-600/20 via-medical-500/10 to-medical-400/5 backdrop-blur-sm"></div>
+                <img src={homeLogoImg} alt="X-ray Insight Background" className="absolute inset-0 w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-medical-600/40 via-medical-500/30 to-medical-400/20 backdrop-blur-[2px]"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-4/5 h-4/5 border-2 border-medical-500/50 rounded-lg flex items-center justify-center">
-                    <div className="text-medical-500 text-opacity-80 text-sm text-center px-4">
-                      Upload your X-ray image to detect pneumonia
+                  <div className="w-4/5 h-4/5 border-2 border-medical-500/50 rounded-lg flex items-center justify-center backdrop-blur-sm bg-white/10">
+                    <div className="w-full h-full overflow-hidden">
+                      <img src={homeLogoImg} alt="X-ray Insight Logo" className="w-full h-full object-cover" />
                     </div>
                   </div>
                 </div>
