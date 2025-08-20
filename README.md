@@ -2,6 +2,8 @@
 
 An AI-powered application for analyzing chest X-rays to detect pneumonia.
 
+🔗 **Live Demo**: [https://nikki-13.github.io/pneumonia_detection](https://nikki-13.github.io/pneumonia_detection)
+
 ## Features
 
 - Upload chest X-ray images for analysis
@@ -109,3 +111,52 @@ If you encounter any issues:
 2. Check that the model files are in the correct location (src/model/)
 3. Verify that the backend server is running and accessible
 4. Check the console for any error messages
+
+## Deployment
+
+### GitHub Pages
+
+The frontend is automatically deployed to GitHub Pages on every push to the main branch.
+
+**Live URL**: [https://nikki-13.github.io/pneumonia_detection](https://nikki-13.github.io/pneumonia_detection)
+
+#### Manual Deployment
+
+To deploy manually:
+
+```bash
+# Using the deployment script
+./deploy.sh
+
+# Or using npm commands
+npm run build
+npm run deploy
+```
+
+#### GitHub Actions
+
+The project includes a GitHub Actions workflow (`.github/workflows/deploy.yml`) that automatically:
+- Builds the project on every push to main
+- Deploys to GitHub Pages
+- Serves the application at the live URL
+
+### Local Deployment
+
+For local deployment testing:
+
+```bash
+npm run build
+npm run preview
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License.
