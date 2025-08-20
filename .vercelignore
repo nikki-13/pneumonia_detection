@@ -1,0 +1,10 @@
+# Exclude ML model files and large directories
+src/model/
+server/
+.venv/
+node_modules/
+dist/
+**/*.pth
+**/__pycache__/
+test_images/
+**/*.pyc
