@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://nikki-13.github.io/pneumonia_detection",
+  "homepage": "https://nikki-13.github.io",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

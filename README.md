@@ -2,7 +2,7 @@
 
 An AI-powered application for analyzing chest X-rays to detect pneumonia.
 
-🔗 **Live Demo**: [https://nikki-13.github.io/pneumonia_detection](https://nikki-13.github.io/pneumonia_detection)
+🔗 **Live Demo**: [https://nikki-13.github.io](https://nikki-13.github.io)
 
 ## Features
 
@@ -118,7 +118,7 @@ If you encounter any issues:
 
 The frontend is automatically deployed to GitHub Pages on every push to the main branch.
 
-**Live URL**: [https://nikki-13.github.io/pneumonia_detection](https://nikki-13.github.io/pneumonia_detection)
+**Live URL**: [https://nikki-13.github.io](https://nikki-13.github.io)
 
 #### Manual Deployment
 

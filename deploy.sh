@@ -12,4 +12,4 @@ echo "🌐 Deploying to GitHub Pages..."
 npm run deploy
 
 echo "✅ Deployment complete! Your site will be available at:"
-echo "https://nikki-13.github.io/pneumonia_detection"
+echo "https://nikki-13.github.io"
